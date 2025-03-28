@@ -87,6 +87,9 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -167,7 +170,7 @@ vim.opt.confirm = true
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
+vim.keymap.set('n', '<q><q>', '<C-]>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -193,7 +196,21 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
+vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { desc = '[T]oggle [T]ree' })
+vim.keymap.set('n', '<leader>to', ':split | terminal<CR>', { desc = '[T]oggle [T]ree' })
+vim.keymap.set('n', '<leader>tf', function()
+  if vim.fn.bufname():match 'NvimTree_' then
+    vim.cmd.wincmd 'p'
+  else
+    nvimtree.find_file(true)
+  end
+end, { desc = 'nvim-tree: toggle' })
+vim.keymap.set('n', 'gd', function()
+  if vim.o.tagfunc ~= '' or #vim.fn.tagfiles() > 0 then
+    return '<C-]>'
+  end
+  return 'gd'
+end, { expr = true })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -404,6 +421,12 @@ require('lazy').setup({
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          path_display = { 'filename_first' },
+          file_ignore_patterns = {
+            'node_modules',
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -427,7 +450,6 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
@@ -450,9 +472,53 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Shortcut for searching your project
+      vim.keymap.set('n', '<leader>sc', function()
+        builtin.find_files { cwd = vim.fn.systemlist('git rev-parse --show-toplevel')[1] }
+      end, { desc = '[S]earch [C]urrent project' })
     end,
   },
+  { 'nvim-tree/nvim-web-devicons', opts = {}, enabled = true },
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = '*',
+    lazy = false,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      local function my_on_attach(bufnr)
+        local api = require 'nvim-tree.api'
 
+        local function opts(desc)
+          return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        end
+
+        -- default mappings
+        api.config.mappings.default_on_attach(bufnr)
+
+        -- custom mappings
+        vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts 'Up')
+        vim.keymap.set('n', '?', api.tree.toggle_help, opts 'Help')
+      end
+      require('nvim-tree').setup {
+        on_attach = my_on_attach,
+        sort = {
+          sorter = 'case_sensitive',
+        },
+        view = {
+          width = 30,
+        },
+        renderer = {
+          group_empty = true,
+        },
+        filters = {
+          dotfiles = true,
+        },
+      }
+    end,
+  },
   -- LSP Plugins
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
