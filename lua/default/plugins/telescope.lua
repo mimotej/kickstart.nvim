@@ -55,6 +55,11 @@ return {
         --   },
         -- },
         -- pickers = {}
+        pickers = {
+          find_files = {
+            theme = 'ivy',
+          },
+        },
         defaults = {
           path_display = { 'filename_first' },
           file_ignore_patterns = {
@@ -102,6 +107,10 @@ return {
           prompt_title = 'Live Grep in Open Files',
         }
       end, { desc = '[S]earch [/] in Open Files' })
+      -- Shortcut to projects folder
+      vim.keymap.set('n', '<leader>sp', function()
+        builtin.find_files { cwd = '~/projects/' }
+      end, { desc = '[S]earch [P]roject files' })
 
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
