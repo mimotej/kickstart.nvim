@@ -209,23 +209,25 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { desc = '[T]oggle [T]ree' })
-vim.api.nvim_create_autocmd('TermOpen', {
-  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
-  callback = function()
-    vim.opt.number = false
-    vim.opt.relativenumber = false
-  end,
-})
 
-local job_id = 0
-vim.keymap.set('n', '<leader>to', function()
-  vim.cmd.vnew()
-  vim.cmd.term()
-  vim.cmd.wincmd 'J'
-  vim.api.nvim_win_set_height(0, 15)
-  job_id = vim.bo.channel
-  vim.fn.chansend(job_id, { 'neofetch\r\n' })
-end)
+-- Default terminal unused
+--vim.api.nvim_create_autocmd('TermOpen', {
+--  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
+--  callback = function()
+--    vim.opt.number = false
+--    vim.opt.relativenumber = false
+--  end,
+--})
+--
+--local job_id = 0
+--vim.keymap.set('n', '<leader>to', function()
+--  vim.cmd.vnew()
+--  vim.cmd.term()
+--  vim.cmd.wincmd 'J'
+--  vim.api.nvim_win_set_height(0, 15)
+--  job_id = vim.bo.channel
+--  vim.fn.chansend(job_id, { 'neofetch\r\n' })
+--end)
 
 vim.keymap.set('n', 'gd', function()
   if vim.o.tagfunc ~= '' or #vim.fn.tagfiles() > 0 then
