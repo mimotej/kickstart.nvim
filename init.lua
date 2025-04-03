@@ -179,6 +179,9 @@ vim.keymap.set('n', '<leader>rI', ':Refactor inline_func')
 vim.keymap.set('n', '<leader>rb', ':Refactor extract_block')
 vim.keymap.set('n', '<leader>rbf', ':Refactor extract_block_to_file')
 
+-- map terminal
+vim.keymap.set('n', '<Esc>', '<C-\\><C-n>')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')

@@ -46,6 +46,20 @@ return {
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
+        vimgrep_arguments = {
+          'rg',
+          '--follow', -- Follow symbolic links
+          '--hidden', -- Search for hidden files
+          '--no-heading', -- Don't group matches by each file
+          '--with-filename', -- Print the file path with the matched lines
+          '--line-number', -- Show line numbers
+          '--column', -- Show column numbers
+          '--smart-case', -- Smart case search
+          '--no-require-git',
+          '--no-ignore-vcs',
+          '--ignore-file=/Users/michal.drla/.config/ripgrep/.ignore',
+          -- Exclude some patterns from search
+        },
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
@@ -57,6 +71,15 @@ return {
         -- pickers = {}
         pickers = {
           find_files = {
+            hidden = true,
+            find_command = {
+              'rg',
+              '--files',
+              '--hidden',
+              '--no-require-git',
+              '--no-ignore-vcs',
+              '--ignore-file=/Users/michal.drla/.config/ripgrep/.ignore',
+            },
             theme = 'ivy',
           },
         },
