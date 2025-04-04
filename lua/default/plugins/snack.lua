@@ -19,6 +19,7 @@ return {
       git = { enabled = true },
       gitbrowse = { enabled = true },
       lazygit = { enabled = true },
+      terminal = { win = { height = 0.3 } },
     },
     keys = {
       {
@@ -120,6 +121,13 @@ return {
           Snacks.picker.lsp_symbols()
         end,
         desc = 'LSP Symbols',
+      },
+      {
+        '<leader>gb',
+        function()
+          Snacks.git.blame_line()
+        end,
+        desc = 'Git Blame Line',
       },
       {
         '<leader>sS',
