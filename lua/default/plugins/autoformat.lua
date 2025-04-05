@@ -40,7 +40,7 @@ return {
         javascriptreact = { 'prettier' },
         json = { 'jq' },
         yaml = { 'yamlfix' },
-        python = { 'black' },
+        python = { 'isort', 'black' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
