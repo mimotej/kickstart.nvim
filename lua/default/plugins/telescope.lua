@@ -58,6 +58,7 @@ return {
           '--no-require-git',
           '--no-ignore-vcs',
           '--ignore-file=/Users/michal.drla/.config/nvim/static/ripgrep/.ignore',
+          '--ignore-file=/home/mimotej/.config/nvim/static/ripgrep/.ignore',
           -- Exclude some patterns from search
         },
         -- You can put your default mappings / updates / etc. in here
@@ -79,6 +80,7 @@ return {
               '--no-require-git',
               '--no-ignore-vcs',
               '--ignore-file=/Users/michal.drla/.config/nvim/static/ripgrep/.ignore',
+              '--ignore-file=/home/mimotej/.config/nvim/static/ripgrep/.ignore',
             },
             theme = 'ivy',
           },
