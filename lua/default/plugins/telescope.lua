@@ -5,6 +5,7 @@ return {
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'debugloop/telescope-undo.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
         'nvim-telescope/telescope-fzf-native.nvim',
 
@@ -19,7 +20,6 @@ return {
         end,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
-
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
@@ -96,9 +96,17 @@ return {
             require('telescope.themes').get_dropdown(),
           },
           fzf = {},
+          undo = {
+            side_by_side = true,
+            layout_strategy = 'vertical',
+            layout_config = {
+              preview_height = 0.6,
+            },
+          },
         },
       }
       require('telescope').load_extension 'fzf'
+      require('telescope').load_extension 'undo'
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
@@ -146,6 +154,7 @@ return {
       vim.keymap.set('n', '<leader>sc', function()
         builtin.find_files { cwd = vim.fn.systemlist('git rev-parse --show-toplevel')[1] }
       end, { desc = '[S]earch [C]urrent project' })
+      vim.keymap.set('n', '<leader>su', ':Telescope undo<CR>', { desc = '[S]earch [U]ndo history' })
     end,
   },
 }
