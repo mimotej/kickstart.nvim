@@ -213,7 +213,8 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NvimTree and oil keymaps
-vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', { desc = '[T]oggle [T]ree' })
+vim.keymap.set('n', '<leader>tt', ':Neotree<CR>', { desc = '[T]oggle [T]ree' })
+vim.keymap.set('n', '<leader>tg', ':Neotree float git_status<CR>', { desc = '[T]ree [G]it status' })
 vim.keymap.set('n', '<leader>te', ':Oil<CR>', { desc = '[T]ree [E]dit' })
 
 -- git shortcuts
