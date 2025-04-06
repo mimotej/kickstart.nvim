@@ -212,9 +212,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Buffers
-vim.keymap.set('n', '<leader>bs', ':Telescope buffers<CR>', { desc = '[B]uffers [S]earch' })
-
 -- NvimTree and oil keymaps
 vim.keymap.set('n', '<leader>tt', ':Neotree<CR>', { desc = '[T]oggle [T]ree' })
 vim.keymap.set('n', '<leader>tg', ':Neotree float git_status<CR>', { desc = '[T]ree [G]it status' })
