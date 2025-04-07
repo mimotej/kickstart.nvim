@@ -245,13 +245,14 @@ end, { desc = 'Git Browse (copy)' })
 --  job_id = vim.bo.channel
 --  vim.fn.chansend(job_id, { 'neofetch\r\n' })
 --end)
-
 vim.keymap.set('n', 'gd', function()
   if vim.o.tagfunc ~= '' or #vim.fn.tagfiles() > 0 then
     return '<C-]>'
   end
   return 'gd'
 end, { expr = true })
+
+vim.keymap.set('n', '<leader>tc', ':CopilotChatToggle<CR>', { desc = '[T]oggle [C]opilot' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
