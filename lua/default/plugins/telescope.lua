@@ -71,6 +71,17 @@ return {
         -- },
         -- pickers = {}
         pickers = {
+          live_grep = {
+            additional_args = function(opts)
+              return {
+                '--hidden',
+                '--no-require-git',
+                '--no-ignore-vcs',
+                '--ignore-file=/Users/micha.drla/.config/nvim/static/ripgrep/.ignore',
+                '--ignore-file=/home/mimotej/.config/nvim/static/ripgrep/.ignore',
+              }
+            end,
+          },
           find_files = {
             hidden = true,
             find_command = {
@@ -82,7 +93,6 @@ return {
               '--ignore-file=/Users/michal.drla/.config/nvim/static/ripgrep/.ignore',
               '--ignore-file=/home/mimotej/.config/nvim/static/ripgrep/.ignore',
             },
-            theme = 'ivy',
           },
         },
         defaults = {
