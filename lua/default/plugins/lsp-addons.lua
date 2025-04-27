@@ -1,5 +1,9 @@
 return {
   {
+    'dnlhc/glance.nvim',
+    cmd = 'Glance',
+  },
+  {
     'kosayoda/nvim-lightbulb',
     config = function()
       require('nvim-lightbulb').setup {

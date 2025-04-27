@@ -113,10 +113,27 @@ return {
               preview_height = 0.6,
             },
           },
+          aerial = {
+            -- Set the width of the first two columns (the second
+            -- is relevant only when show_columns is set to 'both')
+            col1_width = 4,
+            col2_width = 30,
+            -- How to format the symbols
+            format_symbol = function(symbol_path, filetype)
+              if filetype == 'json' or filetype == 'yaml' then
+                return table.concat(symbol_path, '.')
+              else
+                return symbol_path[#symbol_path]
+              end
+            end,
+            -- Available modes: symbols, lines, both
+            show_columns = 'both',
+          },
         },
       }
       require('telescope').load_extension 'fzf'
       require('telescope').load_extension 'undo'
+      require('telescope').load_extension 'aerial'
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
@@ -126,6 +143,7 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sa', ':Telescope aerial<CR>', { desc = '[S]earch [A]erial' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })

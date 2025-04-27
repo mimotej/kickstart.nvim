@@ -252,6 +252,12 @@ vim.keymap.set('n', 'gd', function()
   return 'gd'
 end, { expr = true })
 
+-- Glance keybindings
+vim.keymap.set('n', '<leader>gD', '<CMD>Glance definitions<CR>')
+vim.keymap.set('n', '<leadre>gR', '<CMD>Glance references<CR>')
+vim.keymap.set('n', '<leader>gY', '<CMD>Glance type_definitions<CR>')
+vim.keymap.set('n', '<leader>gM', '<CMD>Glance implementations<CR>')
+
 vim.keymap.set('n', '<leader>tc', ':CopilotChatToggle<CR>', { desc = '[T]oggle [C]opilot' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
