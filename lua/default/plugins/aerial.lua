@@ -15,9 +15,38 @@ return {
           vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', { buffer = bufnr })
           vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
         end,
+        icons = {
+          Array = '󱡠 ',
+          Boolean = '󰨙 ',
+          Class = '󰆧 ',
+          Constant = '󰏿 ',
+          Constructor = ' ',
+          Enum = ' ',
+          EnumMember = ' ',
+          Event = ' ',
+          Field = ' ',
+          File = '󰈙 ',
+          Function = '󰊕 ',
+          Interface = ' ',
+          Key = '󰌋 ',
+          Method = '󰊕 ',
+          Module = ' ',
+          Namespace = '󰦮 ',
+          Null = '󰟢 ',
+          Number = '󰎠 ',
+          Object = ' ',
+          Operator = '󰆕 ',
+          Package = ' ',
+          Property = ' ',
+          String = ' ',
+          Struct = '󰆼 ',
+          TypeParameter = '󰗴 ',
+          Variable = '󰀫 ',
+          Collapsed = ' ',
+        },
       }
       -- You probably also want to set a keymap to toggle aerial
-      vim.keymap.set('n', '<leader>ta', '<cmd>AerialToggle!<CR>')
+      vim.keymap.set('n', '<leader>ta', '[T]oggle [A]erial')
     end,
   },
 }
