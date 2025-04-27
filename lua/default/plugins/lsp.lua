@@ -286,6 +286,10 @@ return {
         'isort',
         'eslint_d',
         'goimports',
+        'helm-ls',
+        'terraform-ls',
+        'tflint',
+        'kube-linter',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

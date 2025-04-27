@@ -47,6 +47,10 @@ return {
         json = { 'jq' },
         yaml = { 'yamlfix' },
         python = { 'isort', 'black' },
+        hcl = { 'packer_fmt' },
+        terraform = { 'terraform_fmt' },
+        tf = { 'terraform_fmt' },
+        ['terraform-vars'] = { 'terraform_fmt' },
         -- Conform can also run multiple formatters sequentially
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
