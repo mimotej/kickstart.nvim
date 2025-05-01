@@ -1,3 +1,4 @@
 return {
-  'giuxtaposition/blink-cmp-copilot',
+  -- Replaced with fang2hou/blink-copilot
+  --  'giuxtaposition/blink-cmp-copilot',
 }
