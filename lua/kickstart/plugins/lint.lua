@@ -9,7 +9,7 @@ return {
         markdown = { 'markdownlint' },
         yaml = { 'yamllint' },
         javascript = { 'eslint_d' },
-        typescript = { 'eslint_' },
+        typescript = { 'eslint_d' },
         javascriptreact = { 'eslint_d' },
         typescriptreact = { 'eslint_d' },
         go = { 'golangci-lint' },
