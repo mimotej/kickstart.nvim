@@ -105,7 +105,7 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -258,7 +258,7 @@ vim.keymap.set('n', '<leadre>gR', '<CMD>Glance references<CR>')
 vim.keymap.set('n', '<leader>gY', '<CMD>Glance type_definitions<CR>')
 vim.keymap.set('n', '<leader>gM', '<CMD>Glance implementations<CR>')
 
-vim.keymap.set('n', '<leader>tc', ':CodeCompanionChat Toggle<CR>', { desc = '[T]oggle [C]opilot' })
+vim.keymap.set('n', '<leader>tc', ':CodeCompanion Chat Toggle<CR>', { desc = '[T]oggle [C]odeCompanion' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
