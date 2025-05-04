@@ -148,29 +148,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
--- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
-
--- Show which line your cursor is on
-vim.opt.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
-
--- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
--- instead raise a dialog asking if you wish to save the current file(s)
--- See `:help 'confirm'`
-vim.opt.confirm = true
-
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
--- Refactoring keymaps
-vim.keymap.set('x', '<leader>re', ':Refactor extract ')
-vim.keymap.set('x', '<leader>rf', ':Refactor extract_to_file ')
-
-vim.keymap.set('x', '<leader>rv', ':Refactor extract_var ')
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- Preview substitutions live, as you type! vim.opt.inccommand = 'split' -- Show which line your cursor is on vim.opt.cursorline = true -- Minimal number of screen lines to keep above and below the cursor. vim.opt.scrolloff = 10 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`), instead raise a dialog asking if you wish to save the current file(s) See `:help 'confirm'` vim.opt.confirm = true -- [[ Basic Keymaps ]] See `:help vim.keymap.set()` Refactoring keymaps vim.keymap.set('x', '<leader>re', ':Refactor extract ') vim.keymap.set('x', '<leader>rf', ':Refactor extract_to_file ') vim.keymap.set('x', '<leader>rv', ':Refactor extract_var ')
 
 vim.keymap.set({ 'n', 'x' }, '<leader>ri', ':Refactor inline_var')
 
@@ -287,6 +265,9 @@ vim.opt.rtp:prepend(lazypath)
 
 -- skipper shortcut
 vim.keymap.set('n', '<leader>cf', ':ShowFunctionsWindow<CR>', { desc = '[S]kipper' })
+
+-- Markdown preview
+vim.keymap.set('n', '<leader>mp', ':MarkdownPreview<CR>', { desc = '[M]arkdown [P]review' })
 
 -- [[ Configure and install plugins ]]
 --
