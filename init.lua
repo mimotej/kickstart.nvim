@@ -196,7 +196,7 @@ vim.keymap.set('n', '<leader>tg', ':Neotree float git_status<CR>', { desc = '[T]
 vim.keymap.set('n', '<leader>te', ':Oil<CR>', { desc = '[T]ree [E]dit' })
 
 -- git shortcuts
-vim.keymap.set({ 'n', 'x' }, '<leader>gY', function()
+vim.keymap.set({ 'n', 'x' }, '<leader>gB', function()
   Snacks.gitbrowse {
     open = function(url)
       vim.fn.setreg('+', url)
