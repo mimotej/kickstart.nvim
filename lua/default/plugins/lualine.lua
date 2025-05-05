@@ -66,7 +66,23 @@ return {
             end,
           },
         },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = {
+          {
+            'macro',
+            fmt = function()
+              local reg = vim.fn.reg_recording()
+              if reg ~= '' then
+                return 'Recording @' .. reg
+              end
+              return nil
+            end,
+            color = { fg = '#ff9e64' },
+            draw_empty = false,
+          },
+          'encoding',
+          'fileformat',
+          'filetype',
+        },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
       },
