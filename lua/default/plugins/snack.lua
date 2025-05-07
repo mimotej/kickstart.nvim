@@ -30,6 +30,13 @@ return {
         desc = '[T]erminal [O]pen',
       },
       {
+        '<leader>go',
+        function()
+          Snacks.lazygit.open()
+        end,
+        desc = 'Git Branches',
+      },
+      {
         '<leader>gb',
         function()
           Snacks.picker.git_branches()
