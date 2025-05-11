@@ -267,7 +267,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.keymap.set('n', '<leader>cf', ':ShowFunctionsWindow<CR>', { desc = '[S]kipper' })
 
 -- Markdown preview
-vim.keymap.set('n', '<leader>mp', ':MarkdownPreview<CR>', { desc = '[M]arkdown [P]review' })
+vim.keymap.set('n', '<leader>pm', ':MarkdownPreview<CR>', { desc = '[P]review [M]arkdown' })
 
 -- [[ Configure and install plugins ]]
 --
