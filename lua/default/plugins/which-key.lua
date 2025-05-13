@@ -42,6 +42,10 @@ return {
           F12 = '<F12>',
         },
       },
+      triggers = {
+        { '<auto>', mode = 'nixsotc' },
+        { 's', mode = { 'n', 'v' } },
+      },
       -- Document existing key chains
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
@@ -54,6 +58,4 @@ return {
       },
     },
   },
-
-
 }
