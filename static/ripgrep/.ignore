@@ -53,4 +53,10 @@ site
 e2e-test-report/
 .vscode
 
-.terragrunt-cache/*
+*.tfplan
+*.tfstate
+.terraform/
+.terraform.lock.hcl
+terraform.iml
+.terragrunt-cache
+
