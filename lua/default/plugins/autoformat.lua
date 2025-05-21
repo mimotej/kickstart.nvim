@@ -44,6 +44,8 @@ return {
         typescriptreact = { 'prettier' },
         javascript = { 'prettier' },
         javascriptreact = { 'prettier' },
+        java = { 'checkstyle' },
+        --       xml = { 'xmlformatter' },
         json = { 'jq' },
         yaml = { 'yamlfix' },
         python = { 'isort', 'black' },

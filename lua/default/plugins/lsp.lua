@@ -275,6 +275,8 @@ return {
         'stylua', -- Used to format Lua code
         'markdownlint', -- Used to lint markdown files
         'yamlls',
+        'jdtls',
+        'checkstyle',
         'gopls',
         'yamlfix',
         'yamllint',
@@ -291,6 +293,7 @@ return {
         'terraform-ls',
         'tflint',
         'kube-linter',
+        'xmlformatter',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
