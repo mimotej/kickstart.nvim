@@ -155,8 +155,21 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected code block 
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected code block up' })
 
 -- Other useful keymaps
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down and center' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up and center' })
+vim.keymap.set('n', '<C-d>', function()
+  vim.wo.scrolloff = 999
+  vim.defer_fn(function()
+    vim.wo.scrolloff = 8
+  end, 500)
+  return '<c-d>'
+end, { expr = true })
+
+vim.keymap.set('n', '<C-u>', function()
+  vim.wo.scrolloff = 999
+  vim.defer_fn(function()
+    vim.wo.scrolloff = 8
+  end, 500)
+  return '<c-u>'
+end, { expr = true })
 
 -- Unbind s for suround.mini
 vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
