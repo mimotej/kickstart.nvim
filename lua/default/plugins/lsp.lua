@@ -294,6 +294,7 @@ return {
         'tflint',
         'kube-linter',
         'xmlformatter',
+        'json-lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
