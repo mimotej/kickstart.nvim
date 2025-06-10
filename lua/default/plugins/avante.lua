@@ -7,10 +7,21 @@ return {
       -- add any opts here
       -- for example
       auto_suggestions_provider = 'copilot',
+      provider = 'copilot',
+      input = {
+        -- input provider to use, can be 'dressing', 'snacks', 'telescope', 'copilot'
+        -- or a custom function that returns a string
+        provider = 'snacks',
+        provider_opts = {
+          title = 'Avante Input',
+          icon = '',
+        },
+        -- if you want to use a custom function, you can do it like this:
+        -- provider = function() return vim.fn.input('Avante: ') end,
+      },
       providers = {
         copilot = {
-          endpoint = 'https://api.githubcopilot.com',
-          model = 'claude-sonnet-4',
+          model = 'gpt-4.1',
         },
       },
     },

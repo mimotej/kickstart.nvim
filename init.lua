@@ -260,7 +260,7 @@ vim.keymap.set('n', '<leadre>gR', '<CMD>Glance references<CR>')
 vim.keymap.set('n', '<leader>gY', '<CMD>Glance type_definitions<CR>')
 vim.keymap.set('n', '<leader>gM', '<CMD>Glance implementations<CR>')
 
-vim.keymap.set('n', '<leader>tc', ':CodeCompanion Chat Toggle<CR>', { desc = '[T]oggle [C]odeCompanion' })
+vim.keymap.set('n', '<leader>ac', ':AvanteChat<CR>', { desc = '[A]vante [C]hat' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
