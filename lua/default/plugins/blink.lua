@@ -2,7 +2,7 @@ return {
   {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
-    dependencies = { 'rafamadriz/friendly-snippets', 'fang2hou/blink-copilot' },
+    dependencies = { 'rafamadriz/friendly-snippets', 'fang2hou/blink-copilot', 'Kaiser-Yang/blink-cmp-avante' },
 
     --juse a release tag to download pre-built binaries
     version = '1.*',
@@ -39,8 +39,12 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'codecompanion', 'copilot' },
+        default = { 'avante', 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
         providers = {
+          avante = {
+            name = 'Avante',
+            module = 'blink-cmp-avante',
+          },
           copilot = {
             name = 'copilot',
             module = 'blink-copilot',
