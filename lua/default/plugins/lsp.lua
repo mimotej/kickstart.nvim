@@ -175,7 +175,7 @@ return {
           current_line = true,
         },
         severity_sort = true,
-        underline = false,
+        underline = true,
         float = { border = 'rounded', source = true },
         signs = vim.g.have_nerd_font and {
           text = {

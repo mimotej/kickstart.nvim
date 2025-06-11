@@ -7,6 +7,18 @@ return {
     'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
+      require('catppuccin').setup {
+        -- You can change the style of the colorscheme here.
+        -- The default is 'latte', but you can also
+        native_lsp = {
+          underlines = {
+            errors = { 'undercurl' },
+            hints = { 'undercurl' },
+            warnings = { 'undercurl' },
+            information = { 'undercurl' },
+          },
+        },
+      }
       ---@diagnostic disable-next-line: missing-fields
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
