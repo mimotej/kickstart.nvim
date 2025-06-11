@@ -34,21 +34,44 @@ return {
       },
 
       -- (Default) Only show the documentation popup when manually triggered
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        ghost_text = {
+          enabled = true,
+        },
+        documentation = { auto_show = false },
+      },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { 'avante', 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
         providers = {
+          lsp = {
+            min_keyword_length = 1,
+            score_offset = 10,
+          },
+          snippets = {
+            min_keyword_length = 2,
+            score_offset = 9,
+          },
+          path = {
+            min_keyword_length = 3,
+            score_offset = 8,
+          },
+          buffer = {
+            min_keyword_length = 5,
+            score_offset = 7,
+          },
           avante = {
             name = 'Avante',
             module = 'blink-cmp-avante',
+            min_keyword_length = 5,
+            score_offset = -2,
           },
           copilot = {
             name = 'copilot',
             module = 'blink-copilot',
-            score_offset = 100,
+            score_offset = -1,
             async = true,
           },
         },

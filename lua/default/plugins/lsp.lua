@@ -290,6 +290,7 @@ return {
         'prettier',
         'jq',
         'black',
+        'pyright',
         'flake8',
         'isort',
         'eslint_d',
