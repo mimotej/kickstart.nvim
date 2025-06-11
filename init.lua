@@ -154,9 +154,6 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- Preview subst
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected code block down' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected code block up' })
 
--- Undercurl
-vim.cmd [[let &t_Cs = "\e[4:3m"]]
-vim.cmd [[let &t_Ce = "\e[4:0m"]]
 -- Enable spell check
 vim.opt.spell = true
 vim.opt.spelllang = { 'en_us' }

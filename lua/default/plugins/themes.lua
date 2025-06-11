@@ -10,12 +10,15 @@ return {
       require('catppuccin').setup {
         -- You can change the style of the colorscheme here.
         -- The default is 'latte', but you can also
-        native_lsp = {
-          underlines = {
-            errors = { 'undercurl' },
-            hints = { 'undercurl' },
-            warnings = { 'undercurl' },
-            information = { 'undercurl' },
+        integrations = {
+          native_lsp = {
+            enabled = true,
+            underlines = {
+              errors = { 'undercurl' },
+              hints = { 'undercurl' },
+              warnings = { 'undercurl' },
+              information = { 'undercurl' },
+            },
           },
         },
       }
