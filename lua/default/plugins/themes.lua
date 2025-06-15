@@ -10,6 +10,7 @@ return {
       require('catppuccin').setup {
         -- You can change the style of the colorscheme here.
         -- The default is 'latte', but you can also
+        flavour = 'frappe',
         integrations = {
           native_lsp = {
             enabled = true,

@@ -5,7 +5,9 @@ return {
     version = false, -- Never set this value to "*"! Never!
     opts = {
       -- add any opts here
-      -- for example
+      web_search_engine = {
+        provider = 'searxng',
+      },
       auto_suggestions_provider = 'copilot',
       provider = 'copilot',
       input = {
