@@ -222,6 +222,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>tt', ':Neotree<CR>', { desc = '[T]oggle [T]ree' })
 vim.keymap.set('n', '<leader>tg', ':Neotree float git_status<CR>', { desc = '[T]ree [G]it status' })
 vim.keymap.set('n', '<leader>te', ':Oil<CR>', { desc = '[T]ree [E]dit' })
+vim.keymap.set('n', '<leader>li', ':lua vim.diagnostic.open_float()<CR>', { desc = '[L]sp [I]nformation' })
 
 -- git shortcuts
 vim.keymap.set({ 'n', 'x' }, '<leader>gB', function()
