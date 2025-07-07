@@ -36,6 +36,14 @@ return {
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
+        menu = {
+          direction_priority = { 'n', 's' },
+        },
+        list = {
+          selection = {
+            preselect = false,
+          },
+        },
         ghost_text = {
           enabled = true,
         },
