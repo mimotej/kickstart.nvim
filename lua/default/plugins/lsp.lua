@@ -259,6 +259,8 @@ return {
         'kube-linter',
         'xmlformatter',
         'json-lsp',
+        'nixfmt',
+        'nil'
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
