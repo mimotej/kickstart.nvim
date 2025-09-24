@@ -8,6 +8,11 @@ return {
         '<leader>f',
         function()
           require('conform').format { async = true, lsp_format = 'fallback' }
+          require('conform').formatters.prettier = {
+            prepend_args = function()
+              return { '--single-quote', '--no-bracket-spacing', '--config-precendence', 'prefer-file' }
+            end,
+          }
         end,
         mode = '',
         desc = '[F]ormat buffer',
