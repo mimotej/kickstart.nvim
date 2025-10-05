@@ -1,6 +1,5 @@
 --[[
 
-=====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
 ========                                    .-----.          ========
@@ -265,7 +264,15 @@ vim.keymap.set('n', '<leadre>gR', '<CMD>Glance references<CR>')
 vim.keymap.set('n', '<leader>gY', '<CMD>Glance type_definitions<CR>')
 vim.keymap.set('n', '<leader>gM', '<CMD>Glance implementations<CR>')
 
-vim.keymap.set('n', '<leader>ac', ':AvanteChat<CR>', { desc = '[A]vante [C]hat' })
+-- Suggested shortcuts for CodeCompanion
+
+-- Open CodeCompanionChat window
+vim.keymap.set('n', '<leader>ac', ':CodeCompanionChat<CR>', { desc = '[A]I [C]hat' })
+
+-- Run CodeCompanion action on selection
+vim.keymap.set('n', '<leader>aa', ':CodeCompanionActions<CR>', { desc = '[A]I [A]ctions' })
+
+-- vim.keymap.set('n', '<leader>ac', ':AvanteChat<CR>', { desc = '[A]vante [C]hat' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
