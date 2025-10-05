@@ -61,7 +61,10 @@ return {
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
       --    function will be executed to configure the current buffer
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      require('lspconfig').lua_ls.setup { capabilities = capabilities }
+      vim.lsp.config("lua_ls", {
+        capabilities = capabilities,
+      })
+      vim.lsp.enable({"lua_ls"})
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
