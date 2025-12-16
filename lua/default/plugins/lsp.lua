@@ -61,10 +61,10 @@ return {
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
       --    function will be executed to configure the current buffer
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      vim.lsp.config("lua_ls", {
+      vim.lsp.config('lua_ls', {
         capabilities = capabilities,
       })
-      vim.lsp.enable({"lua_ls"})
+      vim.lsp.enable { 'lua_ls' }
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
@@ -207,6 +207,16 @@ return {
           staticcheck = true,
           gofumpt = true,
         },
+        helm_ls = {
+          settings = {
+            ['helm-ls'] = {
+              yamlls = {
+                path = 'yaml-language-server',
+              },
+            },
+          },
+        },
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -263,7 +273,7 @@ return {
         'xmlformatter',
         'json-lsp',
         'nixfmt',
-        'nil'
+        'nil',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
